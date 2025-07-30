@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="O aplicație educațională interactivă pentru copii de 8-9 ani care învață despre personaje din povești">
+    <meta name="theme-color" content="#8b5cf6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Personajul Meu">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+    <title>Cine e Personajul Meu? - Aplicație Educațională</title>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h2>🎭 Cine e Personajul Meu?</h2>
+            <p>Se încarcă aplicația educațională...</p>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app" class="app-container hidden">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <header class="app-header">
+                    <h1 class="main-title">🎭 Cine e Personajul Meu?</h1>
+                    <p class="subtitle">O aplicație educațională interactivă pentru copii de 8-9 ani</p>
+                </header>
+
+                <div class="cards-grid">
+                    <div class="activity-card" data-section="story">
+                        <div class="card-icon">📚</div>
+                        <h3>Povestea Interactivă</h3>
+                        <p>Citește povestea lui Matei despre personajul misterios!</p>
+                        <button class="card-button">Începe Povestea</button>
+                    </div>
+
+                    <div class="activity-card" data-section="quiz">
+                        <div class="card-icon">❓</div>
+                        <h3>Quiz Adevărat/Fals</h3>
+                        <p>Testează-ți înțelegerea poveștii cu întrebări distractive!</p>
+                        <button class="card-button">Începe Quiz-ul</button>
+                    </div>
+
+                    <div class="activity-card" data-section="characters">
+                        <div class="card-icon">🎮</div>
+                        <h3>Clasificarea Personajelor</h3>
+                        <p>Învață să clasifici personajele din desenele animate!</p>
+                        <button class="card-button">Începe Jocul</button>
+                    </div>
+                </div>
+
+                <div class="module-info">
+                    <h3>Modulul II: Construim Personaje cu Personalitate</h3>
+                    <p>Lecția 1 - Durata: 15 minute - Vârsta: 8-9 ani</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="section">
+            <div class="container">
+                <header class="section-header">
+                    <button class="back-button" data-target="home">← Înapoi Acasă</button>
+                    <h2>📚 Povestea Interactivă</h2>
+                </header>
+
+                <div class="story-content">
+                    <div class="story-text">
+                        <p>Astăzi, la școală, toată clasa lui Matei a primit o provocare misterioasă:</p>
+                        <p class="quote">"Scrie o poveste despre un personaj… dar nu spune cine este! Lasă-i pe ceilalți să ghicească!"</p>
+                        
+                        <p>Așa că Matei a început să scrie:</p>
+                        
+                        <p class="quote">"Personajul meu e mic. Foarte mic. Adică… încape într-un borcan!"</p>
+                        
+                        <p>Nu are pantaloni. Dar poartă o pălărie mai mare decât el. Și îi place să danseze… chiar și în frigider!</p>
+                        
+                        <p>Când e fericit, face 100 de sărituri într-un minut. Când e trist, mănâncă numai mazăre fiartă. Are un animal de companie: un păianjen pe nume Șurubel.</p>
+                        
+                        <p>Într-o zi, personajul meu a vrut să zboare. A lipit aripi de carton pe spate, a urcat pe un dulap… și a zis:</p>
+                        <p class="quote">"Sunt gata să cuceresc cerul!"</p>
+                        
+                        <p>…A căzut direct în coșul cu rufe murdare. Dar s-a declarat mulțumit.</p>
+                        <p class="quote">"Cel puțin miros a detergent și victorie!"</p>
+                    </div>
+                    
+                    <div class="story-actions">
+                        <button class="next-button" data-target="quiz">Continuă cu Quiz-ul! 🎯</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section">
+            <div class="container">
+                <header class="section-header">
+                    <button class="back-button" data-target="home">← Înapoi Acasă</button>
+                    <h2>❓ Quiz Adevărat sau Fals</h2>
+                    <div class="score">Scor: <span id="quiz-score">0</span>/7</div>
+                </header>
+
+                <div class="quiz-content">
+                    <div id="quiz-questions"></div>
+                    
+                    <div class="quiz-actions">
+                        <button class="next-button" data-target="characters">Continuă cu Jocul Personajelor! 🎮</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="section">
+            <div class="container">
+                <header class="section-header">
+                    <button class="back-button" data-target="home">← Înapoi Acasă</button>
+                    <h2>🎮 Clasificarea Personajelor</h2>
+                    <div class="score">Scor: <span id="character-score">0</span>/12</div>
+                </header>
+
+                <div class="characters-content">
+                    <div id="character-grid"></div>
+                    
+                    <div class="behavior-section">
+                        <h3>🤔 Ce NU ar face personajul meu?</h3>
+                        <div class="score">Scor: <span id="behavior-score">0</span>/4</div>
+                        <div id="behavior-questions"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Install Prompt -->
+    <div id="install-prompt" class="install-prompt hidden">
+        <div class="install-content">
+            <h3>📱 Instalează Aplicația</h3>
+            <p>Vrei să instalezi aplicația pe dispozitivul tău pentru acces rapid?</p>
+            <div class="install-buttons">
+                <button id="install-yes">Da, Instalează</button>
+                <button id="install-no">Nu, Mulțumesc</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
